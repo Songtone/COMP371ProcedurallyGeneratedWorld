@@ -176,43 +176,45 @@ int main()
 
 	glUseProgram(shaderProgram);
 
-	//std::vector<glm::vec3> vertices;
-	//std::vector<glm::vec3> normals;
-	//std::vector<glm::vec2> UVs;
-	//loadOBJ("cube.obj", vertices, normals, UVs); //read the vertices from the cube.obj file
+	std::vector<glm::vec3> vertices_cube;
+	std::vector<glm::vec3> normals_cube;
+	std::vector<glm::vec2> UVs_cube;
+	loadOBJ("cube.obj", vertices_cube, normals_cube, UVs_cube); //read the vertices from the cube.obj file
 
-	//GLuint VAO, VBO,EBO;
-	//glGenVertexArrays(1, &VAO);
-	//glGenBuffers(1, &VBO);
-	//glGenBuffers(1, &EBO);
-	//// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
-	//GLuint vertices_VBO, normals_VBO;
+	GLuint VAO_cube, VBO_cube,EBO_cube;
+	glGenVertexArrays(1, &VAO_cube);
+	glGenBuffers(1, &VBO_cube);
+	glGenBuffers(1, &EBO_cube);
+	// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
+	GLuint vertices_VBO, normals_VBO;
 
-	//glGenVertexArrays(1, &VAO);
-	//glGenBuffers(1, &vertices_VBO);
+	glGenVertexArrays(1, &VAO_cube);
+	glGenBuffers(1, &vertices_VBO);
 
-	//// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
-	//glBindVertexArray(VAO);
+	// Bind the Vertex Array Object first, then bind and set vertex buffer(s) and attribute pointer(s).
+	glBindVertexArray(VAO_cube);
 
-	//glBindBuffer(GL_ARRAY_BUFFER, vertices_VBO);
-	//glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices.front(), GL_STATIC_DRAW);
-	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-	//glEnableVertexAttribArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, vertices_VBO);
+	glBufferData(GL_ARRAY_BUFFER, vertices_cube.size() * sizeof(glm::vec3), &vertices_cube.front(), GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
 
-	//glGenBuffers(1, &normals_VBO);
-	//glBindBuffer(GL_ARRAY_BUFFER, normals_VBO);
-	//glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals.front(), GL_STATIC_DRAW);
-	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-	//glEnableVertexAttribArray(1);
+	glGenBuffers(1, &normals_VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, normals_VBO);
+	glBufferData(GL_ARRAY_BUFFER, normals_cube.size() * sizeof(glm::vec3), &normals_cube.front(), GL_STATIC_DRAW);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(1);
 
-	//glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	//glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs), remember: do NOT unbind the EBO, keep it bound to this VAO
-	float vertices[] = {//triangle coordinates
-		-5.0f,0.0f,-5.0f,
-		-5.0f,0.0f,5.0f,
-		5.0f,0.0f,5.0f,
-		5.0f,0.0f,-5.0f,
+	glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs), remember: do NOT unbind the EBO, keep it bound to this VAO
+	
+	//Creating a plane----------------------------------------------------------------------------
+	float vertices[] = {
+		-10.0f,0.0f,-10.0f,
+		-10.0f,0.0f,10.0f,
+		10.0f,0.0f,10.0f,
+		10.0f,0.0f,-10.0f,
 	};
 
 	unsigned int indices[] = {  // note that we start from 0!
@@ -243,6 +245,8 @@ int main()
 	GLuint projectionLoc = glGetUniformLocation(shaderProgram, "projection_matrix");
 	GLuint viewMatrixLoc = glGetUniformLocation(shaderProgram, "view_matrix");
 	GLuint transformLoc = glGetUniformLocation(shaderProgram, "model_matrix");
+
+	GLuint object_type_loc = glGetUniformLocation(shaderProgram, "object_type");
 
 	// Game loop
 	while (!glfwWindowShouldClose(window))
@@ -283,8 +287,15 @@ int main()
 		glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection_matrix));
 
+
+		glUniform1i(object_type_loc, 0);
 		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);
+
+		glUniform1i(object_type_loc, 1);
+		glBindVertexArray(VAO_cube);
+		glDrawArrays(GL_TRIANGLES, 0, vertices_cube.size());
 		glBindVertexArray(0);
 
 		// Swap the screen buffers
