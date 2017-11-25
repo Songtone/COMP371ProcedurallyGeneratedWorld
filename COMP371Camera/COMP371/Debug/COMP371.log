@@ -1,15 +1,12 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (COMP371_Lab3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  stdafx.cpp
-  objloader.cpp
   Main.cpp
-c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(223): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(298): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(299): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(303): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(304): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(306): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(307): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(252): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(327): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(328): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(332): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(333): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(335): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\songt\desktop\comp371\comp371finalproject\comp371procedurallygeneratedworld\comp371camera\comp371\main.cpp(336): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/FORCE' specification
   COMP371.vcxproj -> C:\Users\songt\Desktop\COMP371\COMP371FINALPROJECT\COMP371ProcedurallyGeneratedWorld\COMP371Camera\Debug\COMP371.exe
   COMP371.vcxproj -> C:\Users\songt\Desktop\COMP371\COMP371FINALPROJECT\COMP371ProcedurallyGeneratedWorld\COMP371Camera\Debug\COMP371.pdb (Partial PDB)
