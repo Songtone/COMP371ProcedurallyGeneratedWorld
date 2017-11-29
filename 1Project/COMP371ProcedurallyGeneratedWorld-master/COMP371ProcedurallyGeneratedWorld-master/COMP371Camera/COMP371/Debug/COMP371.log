@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (COMP371_Lab3.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  COMP371.vcxproj -> C:\Users\mdurb\Desktop\1Project\COMP371ProcedurallyGeneratedWorld-master\COMP371ProcedurallyGeneratedWorld-master\COMP371Camera\Debug\COMP371.exe
